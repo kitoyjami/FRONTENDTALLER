@@ -1,14 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
+
 // styles
-import 'bootstrap.dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/index.css'
-
 // components
-import App from './components/App'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+// Router
+import Paths from './routes'
+import { BrowserRouter } from 'react-router-dom'
+
+const root = document.getElementById('root')
+const container = createRoot(root)
+container.render(
+  <BrowserRouter>
+    <Paths />
+  </BrowserRouter>
 )
