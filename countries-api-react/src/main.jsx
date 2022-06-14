@@ -8,11 +8,13 @@ import './styles/index.css'
 // Router
 import Paths from './routes'
 import { BrowserRouter } from 'react-router-dom'
+import SearchBar from './components/SearchBar'
 
 const root = document.getElementById('root')
 const container = createRoot(root)
 container.render(
   <BrowserRouter>
+    <SearchBar />
     <Paths />
   </BrowserRouter>
 )
