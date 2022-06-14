@@ -1,6 +1,16 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import useAppContext from '../hooks/useAppContext'
 
 const SearchBar = () => {
+  const searchRef = useRef()
+  const { query, setQuery } = useAppContext()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setQuery(searchRef.current.value)
+  }
+  console.log(query)
   return (
     <>
       <nav className='navbar navbar-expand-lg bg-dark'>
@@ -15,8 +25,8 @@ const SearchBar = () => {
                 <Link className='nav-link active' aria-current='page' to='/countries'>Home</Link>
               </li>
             </ul>
-            <form className='d-flex' role='search'>
-              <input className='form-control me-2' type='search' placeholder='Search country' aria-label='Search' />
+            <form className='d-flex' role='search' onSubmit={handleSubmit}>
+              <input ref={searchRef} className='form-control me-2' type='search' placeholder='Search country' aria-label='Search' />
               <button className='btn btn-outline-success' type='submit'>Buscar</button>
             </form>
           </div>

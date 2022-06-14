@@ -14,7 +14,7 @@ const Country = () => {
   }
 
   return (
-    <section className='container'>
+    <section className='container py-5'>
       <p>Country</p>
       <p>{list.name.common}</p>
       <p>{list.capital}</p>
